@@ -1,0 +1,48 @@
+//tablets pequenos e celulares grandes (modo paisagem)
+$screen-sm-min: 576px;
+
+//tablets pequenos (modo retrato)
+$screen-md-min: 768px;
+
+//tablets e desktops pequenos
+$screen-lg-min: 992px;
+
+//tablets grandes e desktops
+$screen-xl-min: 1200px;
+
+@mixin sm {
+    @media(min-width: #{$screen-sm-min}){
+        @content;
+    }
+}
+
+@mixin md {
+    @media(min-width: #{$screen-md-min}){
+        @content;
+    }
+}
+
+@mixin lg{
+    @media(min-width: #{$screen-lg-min}){
+        @content;
+    }
+}
+
+@mixin xl{
+    @media(min-width: #{$screen-lg-min}){
+        @content;
+    }
+}
+
+@mixin rwd($screen){
+    @media(min-width: $screen+'px'){
+        @content;
+    }
+}
+
+@mixin responsify($rule, $sm, $md, $lg, $xl){
+    #{$rule}: $sm;
+    @include md{#{$rule}: $md;}
+    @include lg{#{$rule}: $lg;}
+    @include xl{#{$rule}: $xl;}
+}
